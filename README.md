@@ -1,17 +1,20 @@
 # Implementasi Database SQL untuk Aplikasi e-library
 Dokumentasi singkat implementasi Database SQL
 
+Ini adalah dokumentasi pembuatan database e-library yang menghimpun berbagai tabel. Secara garis besar, tabel-tabel tersebut memuat informasi mengenai siapa meminjam apa pada saat kapan. Hal-hal detail mengenai isi tabel akan dijelaskan pada bagian berikut. Adapun tujuan utama dari proses ini adalah sebagai bagian dari penuntasan rangkaian belajar materi ‘SQL’ di Pacmann. Sebagai rangkaian dari membangun database, siswa juga diminta untuk membangun dataset, yang memampukan siswa untuk mengaplikasikan kembali materi ‘python’ yang pernah dipelajari dengan aplikasi library pandas yang pernah diperoleh dalam materi ‘wrangling’.  Tools yang digunakan dalam proyek ini adalah pgAdmin 4, Google Colab, dan Visual Studio Code.
+
 # Mission Statement
 
-Ini adalah implementasi pembuatan database untuk aplikasi e-library, terdiri atas 6 perpustakaan, yang menyimpan koleksi buku terbitan luar negeri dari bermacam-macam kategori. Dummy dataset pada aplikasi ini dibangun oleh python dengan menggunakan library Faker yang merekam data registrasi user pada tahun 2018-2019 dengan data pinjaman dari tahun 2020-2023. 
+Aplikasi e-library yang dibuat terdiri atas 6 perpustakaan, yang menyimpan koleksi buku terbitan luar negeri dari bermacam-macam kategori. Dummy dataset pada aplikasi ini dibangun oleh python dengan menggunakan library Faker yang merekam data registrasi user pada tahun 2018-2019 dengan data pinjaman dari tahun 2020-2023. 
 
-Database ini menggambarkan user orang Indonesia dari berbagai kota yang mengakses setiap perpustakaan dengan pertama-tama melakukan registrasi atau membuat akun terlebih dahulu. User meminjam buku apa saja, dalam hal ini ebook, yang tersedia berdasarkan kategori, yaitu Thriller, Fantasy, Romance, History, Biography, dan Self-Help.
+Database ini menggambarkan user orang Indonesia yang mengakses setiap perpustakaan dengan membuat akun terlebih dahulu. User meminjam buku apa saja, dalam hal ini ebook, yang tersedia berdasarkan kategori. Karena ini adalah ebook, maka kuantitas buku yang tersedia untuk dipinjam adalah 1. Hanya, untuk satu buku dapat diberikan maksimal 2 akses. Maka frasa “a diverse collection of books with varying quantities available for borrowing” yang tertulis pada soal tim Pacmann dimaknai sebagai jumlah buku sebanyak 1.
 
-Buku yang tersedia dipinjam dengan maksimal akses sebanyak dua untuk tiap user. Artinya buku yang dipinjam user dapat diakses oleh maksimal satu orang lain selain peminjam. Buku yang dipinjam harus segera dikembalikan paling lama 14 hari setelah waktu pinjam. Jika sudah jatuh tempo user belum mengembalikan, akses terhadap buku secara otomatis ditutup oleh sistem. 
+Dengan maksimal akses sebanyak dua untuk masing-masing user, artinya buku yang dipinjam user dapat diakses oleh maksimal satu orang lain selain peminjam. Ini dilakukan agar buku dapat dibaca oleh sebanyak mungkin orang. Karena menitikberatkan pada akses, maka kolom kuantitas buku ditiadakan dan diasumsikan telah terjawab dalam kolom akses. Buku yang dipinjam harus segera dikembalikan paling lama 14 hari setelah waktu pinjam. Jika tidak, akses terhadap buku secara otomatis ditutup oleh sistem. 
 
 Apabila buku yang mau dipinjam sedang tidak tersedia, user menempatkan namanya pada daftar tunggu untuk mendapatkan maksimal dua akses. Ketika buku sudah tersedia, user memiliki waktu 7 hari untuk melakukan peminjaman. Bila lebih dari itu buku belum dipinjam oleh user, maka buku ditawarkan pada user lain yang ada di daftar tunggu berikutnya. 
 
-Pembuatan database dan pembangunan dataset hanya terbatas pada kasus yang sudah bersifat historis. Adapun aspek input data pada aplikasi untuk user dan peminjaman baru di masa depan di luar kapasitas proyek ini. Project ini akan memiliki pengembangan lanjutan, seperti mengembangkan tabel yang lebih beragam untuk merekam interaksi user di aplikasi, dlsb.
+Pembuatan database dan pembangunan dataset hanya terbatas pada kasus yang sudah bersifat historis. Adapun aspek input data pada aplikasi untuk user dan peminjaman baru di masa depan di luar kapasitas proyek ini. Limitasi lain pada proyek ini akan dijelaskan pada bagian terakhir dari dokumentasi ini sebagai rekomendasi untuk pengembangan lanjutan.
+
 
 # Mendesain ERD
 Aspek-aspek penting yang dibutuhkan untuk mendesain ERD adalah pembentukan struktur tabel dan aturan bisnis untuk tabel-tabel tersebut. 
